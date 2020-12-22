@@ -1,6 +1,7 @@
 package org.edamor.numbers.controllers;
 
 
+import org.edamor.numbers.models.NumberResponseDto;
 import org.edamor.numbers.models.NumberTrivia;
 import org.edamor.numbers.services.NumberTriviaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class Controller {
     private NumberTriviaService numberService;
 
     @GetMapping("/get")
-    private NumberTrivia getNumberTrivia() {
+    private NumberResponseDto getNumberTrivia() {
         return numberService.getNumberTrivia();
     }
 }

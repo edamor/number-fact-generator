@@ -3,6 +3,7 @@ package org.edamor.numbers.services.impl;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.edamor.numbers.models.NumberResponseDto;
 import org.edamor.numbers.models.NumberTrivia;
 import org.edamor.numbers.services.NumberTriviaService;
 import org.springframework.http.*;
@@ -18,7 +19,7 @@ public class NumberServiceImpl implements NumberTriviaService {
     private static final String numberTriviaUri = "https://numbersapi.p.rapidapi.com/random/trivia?";
 
     @Override
-    public NumberTrivia getNumberTrivia() throws NullPointerException {
+    public NumberResponseDto getNumberTrivia() throws NullPointerException {
         String uri = numberTriviaUri + "max=10000&min=0&json=true";
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
@@ -35,6 +36,6 @@ public class NumberServiceImpl implements NumberTriviaService {
         }
         assert numberTrivia != null;
 
-        return numberTrivia;
+        return new NumberResponseDto(numberTrivia.getText(), numberTrivia.getNumber());
     }
 }
