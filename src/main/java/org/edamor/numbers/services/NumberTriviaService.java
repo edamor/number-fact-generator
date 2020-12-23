@@ -5,4 +5,6 @@ import org.edamor.numbers.models.NumberResponseDto;
 public interface NumberTriviaService {
 
     NumberResponseDto getNumberTrivia();
+
+    NumberResponseDto getNumberTriviaByNumber(Integer triviaNumber);
 }
