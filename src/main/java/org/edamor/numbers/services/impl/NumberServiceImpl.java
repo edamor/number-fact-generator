@@ -23,7 +23,7 @@ public class NumberServiceImpl implements NumberTriviaService {
 
     @Override
     public NumberResponseDto getNumberTrivia() throws NullPointerException {
-        String uri = numberTriviaUri + "max=2206&min=0&json=true";
+        String uri = numberTriviaUri + "max=6022&min=0&json=true";
         headers.set("x-rapidapi-key", "a13a14aa2amshd027467d9d9f720p188376jsn09af7071b9e1");
         headers.set("x-rapidapi-host", "numbersapi.p.rapidapi.com");
         HttpEntity<String> entity = new HttpEntity<>(headers);
